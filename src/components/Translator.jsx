@@ -17,6 +17,7 @@ class Translator extends Component {
         const { text } = this.state;
         const translated = rot13(text);
         this.setState({
+            text: "",
             translatedText: translated
         })
     };
@@ -28,12 +29,15 @@ class Translator extends Component {
                 <h1>TRANSLATOR!!</h1>
                 <form>
                     <label>Text to be translated
-                        <input type="text" onChange={event => this._handleChange(event.target.value)
-                        }/>
+                        <input 
+                            type="text" 
+                            onChange={event => this._handleChange(event.target.value)}
+                            value={text}
+                        />
                     </label>
                     <button type="button" onClick={this._handleClick}>Translate</button>
                 </form>
-                <p>Plain Text: {text}</p>
+                {/* <p>Plain Text: {text}</p> */}
                 <p>ROT 13 Text: {translatedText}</p>
             </>
         )
